@@ -157,7 +157,6 @@ function alertCopied() {
   }
   var sb = document.getElementById("snackbar");
 
-  //this is where the class name will be added & removed to activate the css
   sb.className = "show";
 
   copiedTimeout = setTimeout(()=>{ sb.className = sb.className.replace("show", ""); }, 3000);
@@ -167,7 +166,6 @@ let t = ["appearance","inputText"];
 function toggleDarkmode() {
     if (document.getElementById('darkmode').checked == true) {
       document.body.classList.add('dark');
-      //document.getElementById('result').classList.add("darktextboxes");
       for(let n of  t) {
         let d = document.getElementById(n);
         if(d) {
@@ -182,8 +180,7 @@ function toggleDarkmode() {
       }
     } else {
       document.body.classList.remove('dark');
-      //document.getElementById('result').classList.remove("darktextboxes");
-      //Buttons
+
       for(let n of  t) {
         let d = document.getElementById(n);
         if(d) {
@@ -197,7 +194,7 @@ function toggleDarkmode() {
         success.classList.add("successlight");
       }
     }
-    //console.log("Dark mode is now: "+(document.getElementById('darkmode').checked))
+
 }
 function selectTab(evt, tabName, buttonName) {
   var i, tabcontent, tablinks;
@@ -206,13 +203,10 @@ function selectTab(evt, tabName, buttonName) {
     tabcontent[i].style.display = "none";
   }
 
-  // Get all elements with class="tablinks" and remove the class "active"
   tablinks = document.getElementsByClassName("tablinks");
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
-
-  // Show the current tab, and add an "active" class to the button that opened the tab
   document.getElementById(tabName).style.display = "block";
   if(evt) {
     evt.currentTarget.className += " active";
@@ -261,7 +255,7 @@ function loadCounter() {
  if(counter) {
    $.ajax({
      url: link,
-     type: "GET", /* or type:"GET" or type:"PUT" */
+     type: "GET", 
      dataType: "json",
      data: {
      },
@@ -290,7 +284,7 @@ function updateOutputBackup(event) {
   }
   let inputText = document.getElementById("inputText");
   if(inputText) {
-    //console.log(`Input: ${inputText.value}`)
+
     let theText;
     if(!inputText.value || inputText.value.length === 0) theText = "Type your text above"
     else theText = inputText.value;
@@ -298,7 +292,7 @@ function updateOutputBackup(event) {
       let toUpdate = document.getElementById(`${identifier}-box`)
       if(toUpdate) {
         let fontData = fonts[identifier];
-        let toModify = theText;
+        let toModify = theText; 
         let toUse = "";
         if(typeof fontData.before != "undefined") {
           toModify = fontData.before(toModify);
@@ -321,21 +315,14 @@ function updateOutput(event) {
   let inputText = document.getElementById("inputText");
   if(event && typeof event.style !== "undefined") {
     event.style.height = "1px";
-    //console.log(`event.scrollHeight: ${event.scrollHeight}`)
     event.style.height = ((event.scrollHeight - 10))+"px";
   }else{
     inputText.style.height = "1px";
-    //console.log(`event.scrollHeight: ${event.scrollHeight}`)
     inputText.style.height = ((inputText.scrollHeight - 8))+"px";
   }
   if(inputText) {
     let textLines = inputText.value.split("\n");
-    if(inputText.value.replace(/\n/g,"").trim().length == 0) textLines = ["Type your text above AH!!"];
-    //console.log(textLines)
-    //console.log(`Input: ${inputText.value}`)
-    //let theText;
-    //if(!inputText.value || inputText.value.length === 0) theText = "Type your text above"
-    //else theText = inputText.value;
+    if(inputText.value.replace(/\n/g,"").trim().length == 0) textLines = ["Type your text above"];
     for(let identifier of Object.keys(fonts)) {
       let fontData = fonts[identifier];
       if(fontData.separator) continue;
@@ -360,12 +347,8 @@ function updateOutput(event) {
         }
         toUpdate.innerHTML = newTextLines.join("\r\n");
         toUpdate.style.height
-        //console.log(`${identifier} scrollHeight: ${toUpdate.scrollHeight}`)
         toUpdate.style.height = "1px";
         toUpdate.style.height = ((toUpdate.scrollHeight - 5))+"px";
-        //toUpdate.innerText = toUse.replace(/\r\n/g,"<br>");
-        //console.log(newTextLines);
-        //console.log(toUpdate.innerText);
       }
     }
   }
