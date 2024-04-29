@@ -162,7 +162,7 @@ function alertCopied() {
   copiedTimeout = setTimeout(()=>{ sb.className = sb.className.replace("show", ""); }, 3000);
 }
 
-let t = ["appearance","inputText"];
+let t = ["inputText"];
 function toggleDarkmode() {
     if (document.getElementById('darkmode').checked == true) {
       document.body.classList.add('dark');
@@ -360,6 +360,5 @@ if (history.scrollRestoration) {
       window.scrollTo(0, 0);
   }
 }
-toggleDarkmode();
 loadFonts();
 updateOutput();
