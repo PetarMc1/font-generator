@@ -5,7 +5,7 @@ To add the Font generator to your website, follow these steps:
 
 1. Copy the iframe code:
 ```html
-<iframe src="https://petarmc1.github.io/font-generator" frameborder="0"></iframe>
+<iframe src="https://tools.petarmc.com/font-generator" frameborder="0"></iframe>
 ```
 2. Paste the code into your website
 
