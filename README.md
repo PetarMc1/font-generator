@@ -1,13 +1,5 @@
 # Font Generator
-
-## Embedding the Font Generator in your website
-To add the Font generator to your website, follow these steps:
-
-1. Copy the iframe code:
-```html
-<iframe src="https://tools.petarmc.com/font-generator" frameborder="0"></iframe>
-```
-2. Paste the code into your website
+Check the [docs](https://docs.petarmc.com/font-generator/about-the-project)
 
 ## Contributing
 Check [CONTRIBUTING.md](/CONTRIBUTING.md)
